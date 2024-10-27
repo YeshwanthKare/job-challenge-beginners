@@ -1,0 +1,36 @@
+---
+- hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Install gpg
+      apt:
+        name: gnupg,software-properties-common
+        state: present
+        update_cache: yes
+    - name: Add gpg key
+      apt_key:
+        url: "https://packages.grafana.com/gpg.key"
+        validate_certs: no
+    - name: Add repository
+      apt_repository:
+        repo: "deb https://packages.grafana.com/oss/deb stable main"
+        state: present
+        validate_certs: no
+
+    - name: Install Grafana
+      ### ATTENZIONE ###
+      # Completare il task andando ad inserire l'istruzione per l'installazione di un nuovo pacchetto apt
+      # il nome del pacchetto è 'grafana'
+      apt:
+        name: grafana
+        state: latest
+
+    - name: Start service grafana-server
+      systemd:
+        ### ATTENZIONE ###
+        # Completare il task andando a eseguire il restart del servizio 'grafana-server'
+        # effettua il reload dei demoni e ricorda inoltre di abilitare il servizio all'avvio.
+        name: grafana-server
+        enabled: yes
+        state: started

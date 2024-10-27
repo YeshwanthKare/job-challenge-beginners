@@ -1,0 +1,13 @@
+global:
+  scrape_interval: 3s
+
+scrape_configs:
+  ### ATTENZIONE ###
+  # Configurare un job di nome "prometheus" che avrà come target l'istanza prometheus
+  # Configurare un altro job, di nome "starwars", che come target avrà l'applicativo python rebels
+  - job_name: "prometheus"
+    static_configs:
+      - targets: [""]
+  - job_name: "starwars"
+    static_configs:
+      - targets: [""]

@@ -1,0 +1,16 @@
+version: '3'
+services:
+  rebels:
+    image: rebels:latest
+    ### ATTENZIONE ###
+    # Il nome del container deve essere fissato a 'rebels'
+    #
+    # Esporre pubblicamente la porta 5000 del container
+    # https://docs.docker.com/compose/compose-file/
+  deathstar:
+    image: deathstar:latest
+    ### ATTENZIONE ###
+    # Il nome del container deve essere fissato a 'ds1'
+    #
+    # Il servizio deathstar deve essere dipendente dall'avvio del servizio 'rebels'
+    # https://docs.docker.com/compose/compose-file/
