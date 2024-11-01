@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   rebels:
     image: rebels:latest
@@ -7,6 +7,17 @@ services:
     #
     # Esporre pubblicamente la porta 5000 del container
     # https://docs.docker.com/compose/compose-file/
+    build:
+      context: ./rebels
+      dockerfile: Dockerfile
+    container_name: rebels
+    ports:
+      - "5001:5000"
+    volumes:
+      - /Users/yesh/Downloads/job-challenge-beginners-main/starwars/rebels:/app
+    networks:
+      - starwars
+
   deathstar:
     image: deathstar:latest
     ### ATTENZIONE ###
@@ -14,3 +25,16 @@ services:
     #
     # Il servizio deathstar deve essere dipendente dall'avvio del servizio 'rebels'
     # https://docs.docker.com/compose/compose-file/
+    build:
+      context: ./deathstar
+      dockerfile: Dockerfile
+    container_name: ds1
+    ports:
+      - "5002:5000"
+    volumes:
+      - /Users/yesh/Downloads/job-challenge-beginners-main/starwars/deathstar:/app
+    networks:
+      - starwars
+
+networks:
+  starwars:
