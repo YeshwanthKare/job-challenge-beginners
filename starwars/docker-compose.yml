@@ -12,9 +12,9 @@ services:
       dockerfile: Dockerfile
     container_name: rebels
     ports:
-      - "5001:5000"
+      - "5000:5000"
     volumes:
-      - /Users/yesh/Downloads/job-challenge-beginners-main/starwars/rebels:/app
+      - /home/ubuntu/Github/job-challenge-beginners/starwars/starwars-vol:/var/lib/rebels
     networks:
       - starwars
 
@@ -32,7 +32,7 @@ services:
     ports:
       - "5002:5000"
     volumes:
-      - /Users/yesh/Downloads/job-challenge-beginners-main/starwars/deathstar:/app
+      - /home/ubuntu/Github/job-challenge-beginners/starwars/starwars-vol:/var/lib/ds1
     networks:
       - starwars
 

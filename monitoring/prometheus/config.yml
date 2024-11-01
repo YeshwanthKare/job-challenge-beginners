@@ -10,4 +10,4 @@ scrape_configs:
       - targets: ["15.207.72.177:9090"]
   - job_name: "starwars"
     static_configs:
-      - targets: ["rebels:5000"]
+      - targets: ["localhost:5000"]
