@@ -7,7 +7,7 @@ scrape_configs:
   # Configurare un altro job, di nome "starwars", che come target avrà l'applicativo python rebels
   - job_name: "prometheus"
     static_configs:
-      - targets: ["15.207.72.177:9090"]
+      - targets: ["localhost:9090"]
   - job_name: "starwars"
     static_configs:
       - targets: ["localhost:5000"]
